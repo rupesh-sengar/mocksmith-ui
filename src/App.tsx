@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import Sidebar, { type NavKey } from "./components/Sidebar/Sidebar";
+import Header from "./components/Header/Header";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import "./App.scss";
+import ImportPage from "./pages/Import/ImportPage";
+import PlaygroundPage from "./pages/Playground/PlaygroundPage";
 
-function App() {
-  const [count, setCount] = useState(0)
+function Shell() {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  const current = ((): NavKey => {
+    const seg = (pathname.split("/")[1] || "dashboard") as NavKey;
+    const valid: NavKey[] = [
+      "dashboard",
+      "import",
+      "routes",
+      "playground",
+      "logs",
+      "exports",
+      "settings",
+    ];
+    return valid.includes(seg) ? seg : "dashboard";
+  })();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app-shell">
+      <Sidebar current={current} onSelect={(key) => navigate(`/${key}`)} />
+      <div className="app-main">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/import" element={<ImportPage />} />
+          <Route
+            path="/playground"
+            element={
+              <PlaygroundPage
+                baseUrl="http://localhost:8787"
+                project="demo"
+                env="dev"
+                apiKey="DEMO_KEY"
+              />
+            }
+          />
+          <Route path="*" element={<div>Not found</div>} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Shell />
+    </BrowserRouter>
+  );
+}

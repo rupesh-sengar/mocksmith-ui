@@ -1,0 +1,10 @@
+
+.stat-card {
+  display: flex; align-items: center; gap: 12px; padding: 16px;
+}
+.stat-card .icon {
+  width: 42px; height: 42px; border-radius: 12px;
+  display: grid; place-items: center; flex: 0 0 auto;
+}
+.stat-card .meta .label { color: var(--muted); font-size: .9rem; }
+.stat-card .meta .value { font-size: 1.6rem; font-weight: 700; margin-top: 4px; }

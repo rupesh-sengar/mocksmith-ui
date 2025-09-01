@@ -1,0 +1,29 @@
+.dropzone {
+  margin-top: 12px;
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  min-height: 140px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: #fafafa;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.dropzone.hover {
+  background: #f1f5ff;
+  border-color: #2563eb;
+}
+.dz-center {
+  display: grid;
+  gap: 6px;
+  place-items: center;
+  text-align: center;
+}
+.dz-label {
+  color: #334155;
+  font-weight: 600;
+}
+.dz-hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+}

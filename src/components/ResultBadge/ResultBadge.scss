@@ -1,0 +1,22 @@
+.res-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+}
+.res-badge.blue {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #dbeafe;
+}
+.res-badge.green {
+  background: #ecfdf5;
+  color: #059669;
+  border-color: #d1fae5;
+}

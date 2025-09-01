@@ -1,0 +1,8 @@
+
+.activity-item {
+  display: flex; align-items: flex-start; gap: 10px; padding: 10px; border-radius: 10px;
+}
+.activity-item:hover { background: #f8fafc; }
+.activity-item .dot { width: 10px; height: 10px; border-radius: 9999px; margin-top: 6px; }
+.activity-item .title { font-size: .95rem; color: #1f2937; }
+.activity-item .time { font-size: .8rem; color: var(--muted); }

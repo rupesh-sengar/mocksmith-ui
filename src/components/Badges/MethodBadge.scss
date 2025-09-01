@@ -1,0 +1,39 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.5rem;
+}
+
+.badge.method-get {
+  background: #e0efff;
+  color: #2563eb;
+}
+.badge.method-post {
+  background: #e8f7ec;
+  color: #059669;
+}
+.badge.method-put {
+  background: #fff7e6;
+  color: #b45309;
+}
+.badge.method-delete {
+  background: #ffe4e6;
+  color: #dc2626;
+}
+
+.badge.status {
+  background: #ecfdf5;
+  color: #059669;
+}
+.badge.status.warn {
+  background: #fffbeb;
+  color: #b45309;
+}
+.badge.status.err {
+  background: #fee2e2;
+  color: #b91c1c;
+}

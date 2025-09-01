@@ -1,0 +1,8 @@
+
+.payment-row {
+  padding: 12px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between;
+}
+.payment-row:hover { background: #f8fafc; }
+.payment-row .name { font-weight: 600; color: #0f172a; }
+.payment-row .due { font-size: .8rem; color: var(--muted); }
+.payment-row .amt { color: #ea580c; font-weight: 700; }

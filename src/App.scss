@@ -1,0 +1,26 @@
+/* Make the shell a 2-column grid: [sidebar | main] */
+.app-shell {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Sidebar lives in col 1 (your existing Sidebar.scss can stay) */
+.sidebar {
+  grid-column: 1;
+}
+
+/* Main lives in col 2 and stacks header + page */
+.app-main {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* prevents overflow, fixes long tables */
+}
+
+/* Make sure nothing adds top spacing before header */
+.app-main > *:first-child {
+  margin-top: 0 !important;
+}

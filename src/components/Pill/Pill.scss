@@ -1,0 +1,27 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background: #fff;
+  font-size: 0.85rem;
+  color: #1f2937;
+}
+
+.pill .dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+}
+
+.pill .dot.ok {
+  background: #10b981;
+}
+.pill .dot.warn {
+  background: #f59e0b;
+}
+.pill .dot.err {
+  background: #ef4444;
+}

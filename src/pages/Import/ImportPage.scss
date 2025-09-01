@@ -1,0 +1,128 @@
+.import-page {
+  padding: 16px 16px 24px;
+  display: grid;
+  gap: 16px;
+}
+
+/* toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.toolbar .actions {
+  display: flex;
+  gap: 8px;
+}
+.btn {
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.btn.blue {
+  background: #2563eb;
+  color: #fff;
+  border-color: transparent;
+}
+.btn.green {
+  background: #16a34a;
+  color: #fff;
+  border-color: transparent;
+}
+
+/* grid */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 1000px) {
+  .content-grid {
+    grid-template-columns: minmax(0, 1fr) 320px; /* editor | results */
+    align-items: start;
+  }
+}
+
+/* editor card */
+.editor {
+  display: grid;
+  gap: 12px;
+}
+.editor-head {
+  font-weight: 700;
+}
+.editor-area {
+  width: 100%;
+  min-height: 420px;
+  resize: vertical;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 14px;
+  background: #fff;
+  outline: none;
+}
+
+/* results card */
+.results {
+  position: sticky;
+  top: 76px; /* stick under header */
+  display: grid;
+  align-content: start;
+}
+.results-head {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.results-body {
+  display: grid;
+  gap: 10px;
+}
+.results .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 6px 0;
+}
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.status .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+}
+.status.ok .dot {
+  background: #10b981;
+}
+.status.err .dot {
+  background: #ef4444;
+}
+
+/* shared */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 12px;
+}
+.muted {
+  color: var(--muted);
+}

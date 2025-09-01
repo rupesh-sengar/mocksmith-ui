@@ -1,0 +1,137 @@
+.dashboard-qspage {
+  padding: 24px;
+  display: grid;
+  gap: 16px;
+}
+
+.page-title {
+  margin: 0 0 4px 0;
+  font-weight: 800;
+  font-size: 1.35rem;
+}
+
+.page-sub {
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-right {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Quick Start */
+.section {
+  display: grid;
+  gap: 8px;
+}
+.section-h {
+  margin: 0 0 6px;
+}
+
+.quick-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px) {
+  .quick-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Recent Activity table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.table th,
+.table td {
+  font-size: 0.9rem;
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.table th {
+  background: #f8fafc;
+  color: #0f172a;
+  font-weight: 700;
+}
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+.muted {
+  color: var(--muted);
+}
+.strong {
+  font-weight: 700;
+}
+
+/* Refresh row */
+.refresh-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.refresh-row .auto {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+/* Status strip */
+.status-strip {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.status-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #334155;
+}
+.status-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: #10b981;
+}
+
+/* Pills under title */
+.badge-soft {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #dbeafe;
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+}
+.badge-soft.green {
+  background: #ecfdf5;
+  color: #059669;
+  border-color: #d1fae5;
+}
