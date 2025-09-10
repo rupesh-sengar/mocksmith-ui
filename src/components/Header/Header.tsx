@@ -1,22 +1,20 @@
-import React from "react";
 import { HelpCircle } from "lucide-react";
 import "./Header.scss";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../store";
 
 export default function Header() {
+  const page = useSelector((state: RootState) => state.app.page);
   return (
     <div className="header card">
       <div className="crumbs muted">
         Home <span className="sep">›</span>{" "}
-        <span className="current">Dashboard</span>
+        <span className="current">{page}</span>
       </div>
       <div className="actions">
-        <button className="btn">
+        <button className="btn" type="button">
           <HelpCircle size={16} /> Help
         </button>
-        <div className="pill">
-          <span className="dot" /> Connection{" "}
-          <span className="ok">• Connected</span>
-        </div>
       </div>
     </div>
   );

@@ -4,6 +4,8 @@
   border-right: 1px solid var(--border);
   background: #fff;
   display: none;
+  position: fixed;
+  height: 100vh;
 }
 @media (min-width: 900px) {
   .sidebar {

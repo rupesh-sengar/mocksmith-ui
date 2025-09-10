@@ -5,6 +5,8 @@ import QuickCard from "../../components/QuickCard/QuickCard";
 import { MethodBadge, StatusBadge } from "../../components/Badges/MethodBadge";
 import Pill from "../../components/Pill/Pill";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setPage } from "../../store/appSlice";
 
 type ActivityRow = {
   time: string;
@@ -38,13 +40,13 @@ export default function DashboardQS() {
   const [rows, setRows] = useState<ActivityRow[]>(SAMPLE_ROWS);
   const [auto, setAuto] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <div className="dashboard-qspage">
       {/* Header row with project/env & connection pills */}
       <div className="header-row">
         <div>
-          <h1 className="page-title">Dashboard</h1>
           <div className="page-sub">
             Project: <span className="badge-soft">demo</span>
             &nbsp; Env: <span className="badge-soft green">dev</span>
@@ -69,7 +71,10 @@ export default function DashboardQS() {
             iconBg="#3b82f6"
             actionLabel="Upload Configuration"
             actionTone="blue"
-            onAction={() => navigate("/import")}
+            onAction={() => {
+              dispatch(setPage("Import"));
+              navigate("/import");
+            }}
           />
           <QuickCard
             step={2}
@@ -88,6 +93,10 @@ export default function DashboardQS() {
             iconBg="#7c3aed"
             actionLabel="Open Playground"
             actionTone="violet"
+            onAction={() => {
+              dispatch(setPage("Playground"));
+              navigate("/playground");
+            }}
           />
         </div>
       </section>

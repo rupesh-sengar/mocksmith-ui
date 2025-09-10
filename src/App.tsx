@@ -12,10 +12,13 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import "./App.scss";
 import ImportPage from "./pages/Import/ImportPage";
 import PlaygroundPage from "./pages/Playground/PlaygroundPage";
+import { useDispatch } from "react-redux";
+import { setPage } from "./store/appSlice";
 
 function Shell() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
 
   const current = ((): NavKey => {
     const seg = (pathname.split("/")[1] || "dashboard") as NavKey;
@@ -33,7 +36,13 @@ function Shell() {
 
   return (
     <div className="app-shell">
-      <Sidebar current={current} onSelect={(key) => navigate(`/${key}`)} />
+      <Sidebar
+        current={current}
+        onSelect={(key) => {
+          dispatch(setPage(key.charAt(0).toUpperCase() + key.slice(1)));
+          navigate(`/${key}`);
+        }}
+      />
       <div className="app-main">
         <Header />
         <Routes>

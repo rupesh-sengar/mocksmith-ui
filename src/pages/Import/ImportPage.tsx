@@ -6,14 +6,6 @@ import Dropzone from "../../components/Dropzone/Dropzone";
 import { UploadCloud } from "lucide-react";
 import { useImportConfigMutation } from "../../api/admin";
 
-/** Optional: if you already have an API util, inject it via props  */
-export type ImportPageProps = {
-  onImport?: (payload: {
-    body: string;
-    isYaml: boolean;
-  }) => Promise<{ routes: number; scenarios: number; valid: boolean }>;
-};
-
 export default function ImportPage() {
   const [mode, setMode] = useState<"yaml" | "json">("yaml");
   const [text, setText] = useState<string>("");
@@ -119,9 +111,6 @@ export default function ImportPage() {
         <aside className="results card">
           <div className="results-head">Results</div>
           <div className="results-body">
-            <div className="row">
-              <span className="muted">Summary:</span>
-            </div>
             <div className="row">
               <span className="muted">Routes:</span>
               <ResultBadge tone="blue">

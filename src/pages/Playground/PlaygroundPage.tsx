@@ -9,6 +9,7 @@ import {
   Trash2,
   MoreVertical,
 } from "lucide-react";
+import { useGetRoutesQuery } from "../../api/admin";
 
 type Method = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
@@ -124,6 +125,23 @@ export default function PlaygroundPage(props: PlaygroundProps) {
   const [history, setHistory] = useState<HistoryRow[]>([]);
   const [presets, setPresets] = useState<Preset[]>(loadPresets());
 
+  const { isLoading: loadingRoutes, data: routesData } = useGetRoutesQuery({
+    headers: { "x-admin-key": "dev" },
+  });
+
+  const routePresets: Preset[] = Array.isArray(routesData?.routes)
+    ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      routesData.routes.map((route: any) => ({
+        id: uid(),
+        label: `${route.method} ${route.path}`,
+        method: route.method,
+        path: route.path,
+        headers: [],
+        body: "",
+      }))
+    : [];
+
+  console.log({ loadingRoutes, routesData });
   useEffect(() => savePresets(presets), [presets]);
 
   const disabledBody = method === "GET" || method === "DELETE";
@@ -283,6 +301,17 @@ export default function PlaygroundPage(props: PlaygroundProps) {
               <button
                 key={p.id}
                 className="chip"
+                onClick={() => applyPreset(p)}
+                type="button"
+                title={`${p.method} ${p.path}`}
+              >
+                {p.label}
+              </button>
+            ))}
+            {routePresets.map((p) => (
+              <button
+                key={p.id}
+                className="chip blue"
                 onClick={() => applyPreset(p)}
                 type="button"
                 title={`${p.method} ${p.path}`}

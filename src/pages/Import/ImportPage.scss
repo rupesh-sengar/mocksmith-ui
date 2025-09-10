@@ -85,12 +85,13 @@
 }
 .results-body {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 .results .row {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 14px;
 }
 .divider {
   height: 1px;
@@ -102,6 +103,7 @@
   align-items: center;
   gap: 8px;
   font-weight: 600;
+  font-size: 14px;
 }
 .status .dot {
   width: 10px;
